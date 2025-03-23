@@ -22,8 +22,6 @@ Integrantes
 
 -   XXXXXXXXXXXXXXXXX
 
-jsdjs
-
 El uso de vehículos eléctricos ha experimentado un crecimiento
 significativo en los últimos años debido al interés en reducir la
 dependencia de los combustibles fósiles. Por ello, se ha tomado un
@@ -43,6 +41,110 @@ energía limpia. A través de este análisis, se espera obtener información
 valiosa sobre la adopción y el desarrollo de los vehículos eléctricos en
 Washington, contribuyendo a una mejor comprensión de su impacto en el
 mercado y en la infraestructura de transporte sostenible.
+
+### **Variables cualitativas:**
+
+1.  **City** (Ciudad) - **Nominal**
+
+2.  **State** (Estado) - **Nominal**: "Washington".
+
+3.  **Make** (Marca) - **Nominal**: Diferentes marcas de vehículos, como
+    Tesla, Nissan, etc.
+
+4.  **Model** (Modelo) - **Nominal**: Diferentes modelos de vehículos.
+
+5.  **Electric Vehicle Type** (Tipo de vehículo eléctrico) -
+    **Nominal**: Puede ser BEV (Battery Electric Vehicle) o PHEV
+    (Plug-in Hybrid Electric Vehicle).
+
+6.  **Clean Alternative Fuel Vehicle (CAFV) Eligibility** (Preferencia
+    para vehículo de combustible alternativo limpio) - **Nominal**
+
+7.  **Vehicle Location** (Ubicación del vehículo) - **Nominal**
+
+8.  **Electric Utility** (Utilidad eléctrica) - **Nominal**: Es el
+    nombre de la empresa de servicios eléctricos que abastece el área.
+
+9.  **Legislative District** (Distrito legislativo) - **Nominal**:
+    Representa los diferentes distritos legislativos en el estado de
+    Washington.
+
+### **Variables cuantitativas:**
+
+1.  **Postal Code** (Código Postal) - **Discreta**: Es un número que
+    representa un código de área específico, pero es una variable
+    discreta porque los códigos postales están en un conjunto limitado
+    de valores.
+
+2.  **Model Year** (Año del modelo) - **Discreta**: Es un número entero
+    que indica el año en que se fabricó el vehículo. Aunque es numérica,
+    es discreta porque los valores son enteros y finitos.
+
+3.  **Electric Range** (Alcance eléctrico) - **Continua**: Es la
+    distancia que puede recorrer un vehículo con una sola carga. Como
+    puede tomar cualquier valor real dentro de un rango, es una variable
+    continua.
+
+4.  **Base MSRP** (Precio base MSRP) - **Continua**: Es el precio base
+    del vehículo, que puede tomar cualquier valor dentro de un rango, lo
+    que lo convierte en una variable continua.
+
+5.  **2020 Census Tract** (Tracto censal de 2020) - **Nominal o
+    discreta**: Aunque parece ser un identificador geográfico, en
+    algunos casos puede ser tratado como una variable nominal (es un
+    código de área), pero dependiendo del análisis, puede también
+    considerarse discreta si se le usa para representar zonas
+    geográficas.
+
+### **Pregunta global:**
+
+**¿Cuál es la relación entre el tipo de vehículo eléctrico (BEV vs
+PHEV), el precio base (MSRP) y el alcance eléctrico (Electric Range) de
+los vehículos registrados en el Estado de Washington?**
+
+Esta pregunta abarca una perspectiva amplia que examina las diferencias
+entre los tipos de vehículos eléctricos (BEV y PHEV) en relación con dos
+variables cuantitativas clave: el precio y el alcance eléctrico. Esto te
+permitirá ver si existen patrones o diferencias significativas entre
+estos dos tipos de vehículos en cuanto a su precio y rendimiento.
+
+### **Preguntas adicionales para apoyar la respuesta:**
+
+1.  **¿Cómo varía el precio base (MSRP) de los vehículos eléctricos en
+    función del año del modelo?\
+    **
+
+    Esta pregunta te permitirá analizar cómo ha cambiado el precio a lo
+    largo de los años. Esto es útil para entender si los vehículos más
+    nuevos tienden a ser más caros y si esto está relacionado con el
+    avance de la tecnología.
+
+2.  **¿Existen diferencias en el alcance eléctrico (Electric Range)
+    entre los vehículos BEV y los PHEV?\
+    \
+    **Este análisis podría ayudar a determinar si los vehículos
+    completamente eléctricos (BEV) tienen un mayor alcance en
+    comparación con los híbridos enchufables (PHEV) o si no hay
+    diferencias significativas.
+
+3.  **¿Cómo varía la elegibilidad para los vehículos de combustible
+    alternativo limpio (CAFV) en función del tipo de vehículo y su
+    ubicación geográfica (estado o ciudad)?\
+    **
+
+    Esta pregunta te permitiría explorar si hay diferencias en la
+    elegibilidad para incentivos o beneficios dependiendo del tipo de
+    vehículo (BEV o PHEV) y cómo esto se relaciona con la ciudad o
+    región en la que están registrados los vehículos.
+
+4.  **¿Qué relación existe entre el tipo de vehículo (BEV o PHEV) y la
+    utilidad eléctrica que abastece la región en la que está registrado
+    el vehículo?\
+    \
+    **Esta pregunta busca explorar si existe alguna correlación entre el
+    tipo de vehículo eléctrico y el proveedor de electricidad que tiene
+    la región, lo que podría influir en la accesibilidad y la
+    infraestructura de carga disponible.
 
 ```         
 
