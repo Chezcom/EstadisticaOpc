@@ -1,0 +1,58 @@
+---
+title: "Fundamentos de Estadística para Analítica de datos"
+mainfont: DejaVu Sans
+output:
+  html_document: default
+  pdf_document:
+    latex_engine: xelatex
+  word_document: default
+font-family: Times New Roman
+editor_options: 
+  markdown: 
+    wrap: 72
+---
+
+## Fundamentos de Estadística para Analítica de datos
+
+Integrantes
+
+-   Yenny Marisol Sánchez Sánchez
+
+-   XXXXXXXXXXXXXXXXX
+
+-   XXXXXXXXXXXXXXXXX
+
+El uso de vehículos eléctricos ha experimentado un crecimiento
+significativo en los últimos años debido al interés en reducir la
+dependencia de los combustibles fósiles. Por ello, se ha tomado un
+conjunto de datos de vehículos eléctricos registrados en el estado de
+Washington con el propósito de examinar distintos aspectos relacionados
+con su comercialización y desempeño.
+
+Se analizarán variables como el tipo de vehículo eléctrico (BEV -
+totalmente eléctrico y PHEV - híbrido enchufable), el precio base (MSRP)
+y el alcance eléctrico (Electric Range), con el fin de identificar
+patrones y diferencias entre estos modelos.
+
+Además, se explorará la evolución de los precios a lo largo del tiempo,
+la relación entre la autonomía y el tipo de vehículo, así como la
+influencia de factores geográficos en la elegibilidad para incentivos de
+energía limpia. A través de este análisis, se espera obtener información
+valiosa sobre la adopción y el desarrollo de los vehículos eléctricos en
+Washington, contribuyendo a una mejor comprensión de su impacto en el
+mercado y en la infraestructura de transporte sostenible.
+
+```         
+
+install.packages(c("extrafont"))
+font_install("DejaVu Sans")
+```
+
+If there are any difficulties please read the extrafont documentation.
+
+## Experimenting with rendering
+
+```{r, message=FALSE}
+library(knitr)
+library(skimr)
+```
