@@ -147,9 +147,17 @@ estos dos tipos de vehículos en cuanto a su precio y rendimiento.
     infraestructura de carga disponible.
 
 ```         
+# Cargar librerías necesarias
+library(tidyverse)
 
-install.packages(c("extrafont"))
-font_install("DejaVu Sans")
+# Cargar datos (ajusta el nombre del archivo)
+datos <- read.csv("vehiculos_electricos.csv")
+
+# Ver las primeras filas
+head(datos)
+
+# Ver estructura de los datos
+str(datos)
 ```
 
 If there are any difficulties please read the extrafont documentation.
