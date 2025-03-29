@@ -160,11 +160,12 @@ head(datos)
 str(datos)
 ```
 
-If there are any difficulties please read the extrafont documentation.
+Pregunta 1: Relación entre tipo de vehículo, precio base y alcance
+eléctrico
 
-## Experimenting with rendering
+📊 Gráfico de dispersión del precio vs. alcance según tipo de vehículo
 
-```{r, message=FALSE}
-library(knitr)
-library(skimr)
-```
+ggplot(datos, aes(x = Electric.Range, y = Base.MSRP, color =
+Electric.Vehicle.Type)) + geom_point() + labs(title = "Relación entre
+Alcance y Precio según Tipo de Vehículo", x = "Alcance Eléctrico
+(millas)", y = "Precio Base (USD)") + theme_minimal()
