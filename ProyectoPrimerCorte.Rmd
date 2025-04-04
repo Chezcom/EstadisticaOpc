@@ -2,10 +2,10 @@
 title: "Fundamentos de Estadística para Analítica de datos"
 mainfont: DejaVu Sans
 output:
+  html_document: default
+  word_document: default
   pdf_document:
     latex_engine: xelatex
-  word_document: default
-  html_document: default
 font-family: Times New Roman
 editor_options: 
   markdown: 
@@ -155,7 +155,7 @@ library(tidyverse)
 ### Cargar datos (ajusta el nombre del archivo)
 
 ```{r}
-datos <- read.csv("Electric_Vehicle_Population_Data.csv")
+datos<- read.csv("o/Electric_Vehicle_Population_Data.csv")
 
 ```
 
