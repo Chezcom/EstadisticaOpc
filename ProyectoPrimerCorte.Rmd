@@ -2,25 +2,25 @@
 title: "Fundamentos de Estadística para Analítica de datos"
 mainfont: DejaVu Sans
 output:
-  html_document: default
   pdf_document:
     latex_engine: xelatex
   word_document: default
+  html_document: default
 font-family: Times New Roman
 editor_options: 
   markdown: 
     wrap: 72
 ---
 
+install_tinytex()
+
 ## Fundamentos de Estadística para Analítica de datos
 
 Integrantes
 
+-   Jimmy José Díaz Leyton
+-   Jessica Hasbleidy Pinilla Segovia
 -   Yenny Marisol Sánchez Sánchez
-
--   XXXXXXXXXXXXXXXXX
-
--   XXXXXXXXXXXXXXXXX
 
 El uso de vehículos eléctricos ha experimentado un crecimiento
 significativo en los últimos años debido al interés en reducir la
@@ -146,26 +146,155 @@ estos dos tipos de vehículos en cuanto a su precio y rendimiento.
     la región, lo que podría influir en la accesibilidad y la
     infraestructura de carga disponible.
 
-```         
-# Cargar librerías necesarias
+### Cargar librerías necesarias
+
+```{r}
 library(tidyverse)
+```
 
-# Cargar datos (ajusta el nombre del archivo)
-datos <- read.csv("vehiculos_electricos.csv")
+### Cargar datos (ajusta el nombre del archivo)
 
-# Ver las primeras filas
+```{r}
+datos <- read.csv("Electric_Vehicle_Population_Data.csv")
+
+```
+
+### Ver las primeras filas
+
+```{r}
 head(datos)
+```
 
-# Ver estructura de los datos
+### Ver estructura de los datos
+
+```{r}
 str(datos)
 ```
 
-Pregunta 1: Relación entre tipo de vehículo, precio base y alcance
-eléctrico
+### Pregunta 1:
 
-📊 Gráfico de dispersión del precio vs. alcance según tipo de vehículo
+Filtrar datos para BEV y PHEV
 
-ggplot(datos, aes(x = Electric.Range, y = Base.MSRP, color =
-Electric.Vehicle.Type)) + geom_point() + labs(title = "Relación entre
-Alcance y Precio según Tipo de Vehículo", x = "Alcance Eléctrico
-(millas)", y = "Precio Base (USD)") + theme_minimal()
+```{r}
+vehiculos_filtrados <- datos %>%
+  filter(Electric.Vehicle.Type %in% c("Battery Electric Vehicle (BEV)", "Plug-in Hybrid Electric Vehicle (PHEV)"))
+
+```
+
+### Crear el gráfico
+
+```{r}
+#windows()
+ggplot(vehiculos_filtrados, aes(x = Electric.Vehicle.Type, fill = Electric.Vehicle.Type)) +
+  geom_bar() +
+  labs(title = "Distribución de Vehículos Eléctricos (BEV vs PHEV)",
+       x = "Tipo de Vehículo",y = "Cantidad",fill = "Tipo") +  theme_minimal()
+```
+
+###Pregunta 3: Diferencias en el alcance eléctrico entre BEV y PHEV
+
+### Gráfico de boxplot comparando BEV y PHEV
+
+```{r}
+ggplot(datos, aes(x = Electric.Vehicle.Type, y = Electric.Range, fill =
+Electric.Vehicle.Type)) + geom_boxplot() + labs(title = "Comparación del
+Alcance entre BEV y PHEV", x = "Tipo de Vehículo", y = "Alcance
+Eléctrico (millas)") + theme_minimal()
+```
+
+###Pregunta 4: Relación entre elegibilidad CAFV y ubicación
+
+### Contar registros por ciudad y elegibilidad
+
+```{r}
+ciudad_elegibilidad <- datos %>%
+  group_by(City, Clean.Alternative.Fuel.Vehicle..CAFV..Eligibility) %>%
+  summarise(Conteo = n(), .groups = "drop") %>%
+  arrange(desc(Conteo))
+```
+
+### Obtener la moda (ciudades con mayor frecuencia por tipo de elegibilidad)
+
+```{r}
+moda_ciudades <- ciudad_elegibilidad %>%
+  group_by(Clean.Alternative.Fuel.Vehicle..CAFV..Eligibility) %>%
+  slice_max(Conteo, n = 5)  # Tomar las 5 ciudades con más registros
+# Tomar las 5 ciudades con más registros
+```
+
+### Obtener la mediana del conteo de registros por ciudad
+
+```{r}
+mediana_conteo <- median(ciudad_elegibilidad$Conteo)
+```
+
+### Obtener la media del conteo de registros por ciudad
+
+```{r}
+media_conteo <- mean(ciudad_elegibilidad$Conteo)
+```
+
+### Mostrar resultados
+
+```{r}
+print("Moda (Top ciudades por elegibilidad):") print(moda_ciudades)
+
+print(paste("Mediana de registros por ciudad:", mediana_conteo))
+print(paste("Media de registros por ciudad:", round(media_conteo, 2)))
+
+#windows()
+ggplot(moda_ciudades, aes(x = reorder(City, Conteo), y =
+Conteo, fill = Clean.Alternative.Fuel.Vehicle..CAFV..Eligibility)) +
+geom_bar(stat = "identity", position = "dodge") + coord_flip() +
+labs(title = "Ciudades con Mayor Elegibilidad CAFV", x = "Ciudad", y =
+"Cantidad de Vehículos") + theme_minimal()
+```
+
+### Pregunta 5: Relación entre tipo de vehículo y proveedor eléctrico
+
+### Contar registros por Tipo de Vehículo y Proveedor Eléctrico
+
+```{r}
+vehiculo_proveedor <- datos %>%
+  group_by(Electric.Vehicle.Type, Electric.Utility) %>%
+  summarise(Conteo = n(), .groups = "drop") %>%
+  arrange(desc(Conteo))
+```
+
+### Obtener la moda (las combinaciones más frecuentes)
+
+```{r}
+moda_vehiculo_proveedor <- vehiculo_proveedor %>%
+  group_by(Electric.Vehicle.Type) %>%
+  slice_max(Conteo, n = 5)  # Tomar las 5 combinaciones más comunes
+```
+
+### Calcular mediana y media del conteo de registros
+
+```{r}
+mediana_conteo <- median(vehiculo_proveedor$Conteo)
+media_conteo <- mean(vehiculo_proveedor$Conteo)
+```
+
+### Mostrar resultados en consola
+
+```{r}
+print("Moda (Top combinaciones de Tipo de Vehículo y Proveedor Eléctrico):")
+print(moda_vehiculo_proveedor)
+
+print(paste("Mediana de registros por combinación:", mediana_conteo))
+print(paste("Media de registros por combinación:", round(media_conteo, 2)))
+```
+
+### 🔹 Visualización de las combinaciones más comunes
+
+```{r}
+#windows()
+ggplot(moda_vehiculo_proveedor, aes(x = reorder(Electric.Utility, Conteo), y = Conteo, fill = Electric.Vehicle.Type)) +
+  geom_bar(stat = "identity", position = "dodge") +
+  coord_flip() +
+  labs(title = "Relación entre Tipo de Vehículo y Proveedor Eléctrico",
+       x = "Proveedor Eléctrico",
+       y = "Cantidad de Vehículos") +
+  theme_minimal()
+```
