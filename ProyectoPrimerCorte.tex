@@ -1,0 +1,708 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+]{article}
+\usepackage{amsmath,amssymb}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math} % this also loads fontspec
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else
+  % xetex/luatex font selection
+    \setmainfont[]{DejaVu Sans}
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\usepackage[margin=1in]{geometry}
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{248,248,248}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+\usepackage{bookmark}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same}
+\hypersetup{
+  pdftitle={Fundamentos de Estadística para Analítica de datos},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+
+\title{Fundamentos de Estadística para Analítica de datos}
+\author{}
+\date{\vspace{-2.5em}}
+
+\begin{document}
+\maketitle
+
+\subsection{Fundamentos de Estadística para Analítica de
+datos}\label{fundamentos-de-estaduxedstica-para-analuxedtica-de-datos}
+
+Integrantes
+
+\begin{itemize}
+\tightlist
+\item
+  Jimmy José Díaz Leyton
+\item
+  Jessica Hasbleidy Pinilla Segovia
+\item
+  Yenny Marisol Sánchez Sánchez
+\end{itemize}
+
+El uso de vehículos eléctricos ha experimentado un crecimiento
+significativo en los últimos años debido al interés en reducir la
+dependencia de los combustibles fósiles. Por ello, se ha tomado un
+conjunto de datos de vehículos eléctricos registrados en el estado de
+Washington con el propósito de examinar distintos aspectos relacionados
+con su comercialización y desempeño.
+
+Se analizarán variables como el tipo de vehículo eléctrico (BEV -
+totalmente eléctrico y PHEV - híbrido enchufable), el precio base (MSRP)
+y el alcance eléctrico (Electric Range), con el fin de identificar
+patrones y diferencias entre estos modelos.
+
+Además, se explorará la evolución de los precios a lo largo del tiempo,
+la relación entre la autonomía y el tipo de vehículo, así como la
+influencia de factores geográficos en la elegibilidad para incentivos de
+energía limpia. A través de este análisis, se espera obtener información
+valiosa sobre la adopción y el desarrollo de los vehículos eléctricos en
+Washington, contribuyendo a una mejor comprensión de su impacto en el
+mercado y en la infraestructura de transporte sostenible.
+
+\subsubsection{\texorpdfstring{\textbf{Variables
+cualitativas:}}{Variables cualitativas:}}\label{variables-cualitativas}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  \textbf{City} (Ciudad) - \textbf{Nominal}
+\item
+  \textbf{State} (Estado) - \textbf{Nominal}: ``Washington''.
+\item
+  \textbf{Make} (Marca) - \textbf{Nominal}: Diferentes marcas de
+  vehículos, como Tesla, Nissan, etc.
+\item
+  \textbf{Model} (Modelo) - \textbf{Nominal}: Diferentes modelos de
+  vehículos.
+\item
+  \textbf{Electric Vehicle Type} (Tipo de vehículo eléctrico) -
+  \textbf{Nominal}: Puede ser BEV (Battery Electric Vehicle) o PHEV
+  (Plug-in Hybrid Electric Vehicle).
+\item
+  \textbf{Clean Alternative Fuel Vehicle (CAFV) Eligibility}
+  (Preferencia para vehículo de combustible alternativo limpio) -
+  \textbf{Nominal}
+\item
+  \textbf{Vehicle Location} (Ubicación del vehículo) - \textbf{Nominal}
+\item
+  \textbf{Electric Utility} (Utilidad eléctrica) - \textbf{Nominal}: Es
+  el nombre de la empresa de servicios eléctricos que abastece el área.
+\item
+  \textbf{Legislative District} (Distrito legislativo) -
+  \textbf{Nominal}: Representa los diferentes distritos legislativos en
+  el estado de Washington.
+\end{enumerate}
+
+\subsubsection{\texorpdfstring{\textbf{Variables
+cuantitativas:}}{Variables cuantitativas:}}\label{variables-cuantitativas}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  \textbf{Postal Code} (Código Postal) - \textbf{Discreta}: Es un número
+  que representa un código de área específico, pero es una variable
+  discreta porque los códigos postales están en un conjunto limitado de
+  valores.
+\item
+  \textbf{Model Year} (Año del modelo) - \textbf{Discreta}: Es un número
+  entero que indica el año en que se fabricó el vehículo. Aunque es
+  numérica, es discreta porque los valores son enteros y finitos.
+\item
+  \textbf{Electric Range} (Alcance eléctrico) - \textbf{Continua}: Es la
+  distancia que puede recorrer un vehículo con una sola carga. Como
+  puede tomar cualquier valor real dentro de un rango, es una variable
+  continua.
+\item
+  \textbf{Base MSRP} (Precio base MSRP) - \textbf{Continua}: Es el
+  precio base del vehículo, que puede tomar cualquier valor dentro de un
+  rango, lo que lo convierte en una variable continua.
+\item
+  \textbf{2020 Census Tract} (Tracto censal de 2020) - \textbf{Nominal o
+  discreta}: Aunque parece ser un identificador geográfico, en algunos
+  casos puede ser tratado como una variable nominal (es un código de
+  área), pero dependiendo del análisis, puede también considerarse
+  discreta si se le usa para representar zonas geográficas.
+\end{enumerate}
+
+\subsubsection{\texorpdfstring{\textbf{Pregunta
+global:}}{Pregunta global:}}\label{pregunta-global}
+
+\textbf{¿Cuál es la relación entre el tipo de vehículo eléctrico (BEV vs
+PHEV), el precio base (MSRP) y el alcance eléctrico (Electric Range) de
+los vehículos registrados en el Estado de Washington?}
+
+Esta pregunta abarca una perspectiva amplia que examina las diferencias
+entre los tipos de vehículos eléctricos (BEV y PHEV) en relación con dos
+variables cuantitativas clave: el precio y el alcance eléctrico. Esto te
+permitirá ver si existen patrones o diferencias significativas entre
+estos dos tipos de vehículos en cuanto a su precio y rendimiento.
+
+\subsubsection{\texorpdfstring{\textbf{Preguntas adicionales para apoyar
+la
+respuesta:}}{Preguntas adicionales para apoyar la respuesta:}}\label{preguntas-adicionales-para-apoyar-la-respuesta}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  \textbf{¿Cómo varía el precio base (MSRP) de los vehículos eléctricos
+  en función del año del modelo?\\
+  }
+
+  Esta pregunta te permitirá analizar cómo ha cambiado el precio a lo
+  largo de los años. Esto es útil para entender si los vehículos más
+  nuevos tienden a ser más caros y si esto está relacionado con el
+  avance de la tecnología.
+\item
+  \textbf{¿Existen diferencias en el alcance eléctrico (Electric Range)
+  entre los vehículos BEV y los PHEV?\\
+  \strut \\
+  }Este análisis podría ayudar a determinar si los vehículos
+  completamente eléctricos (BEV) tienen un mayor alcance en comparación
+  con los híbridos enchufables (PHEV) o si no hay diferencias
+  significativas.
+\item
+  \textbf{¿Cómo varía la elegibilidad para los vehículos de combustible
+  alternativo limpio (CAFV) en función del tipo de vehículo y su
+  ubicación geográfica (estado o ciudad)?\\
+  }
+
+  Esta pregunta te permitiría explorar si hay diferencias en la
+  elegibilidad para incentivos o beneficios dependiendo del tipo de
+  vehículo (BEV o PHEV) y cómo esto se relaciona con la ciudad o región
+  en la que están registrados los vehículos.
+\item
+  \textbf{¿Qué relación existe entre el tipo de vehículo (BEV o PHEV) y
+  la utilidad eléctrica que abastece la región en la que está registrado
+  el vehículo?\\
+  \strut \\
+  }Esta pregunta busca explorar si existe alguna correlación entre el
+  tipo de vehículo eléctrico y el proveedor de electricidad que tiene la
+  región, lo que podría influir en la accesibilidad y la infraestructura
+  de carga disponible.
+\end{enumerate}
+
+\subsubsection{Cargar librerías
+necesarias}\label{cargar-libreruxedas-necesarias}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(tidyverse)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Warning: package 'tidyverse' was built under R version 4.4.3
+\end{verbatim}
+
+\begin{verbatim}
+## Warning: package 'lubridate' was built under R version 4.4.3
+\end{verbatim}
+
+\begin{verbatim}
+## -- Attaching core tidyverse packages ------------------------ tidyverse 2.0.0 --
+## v dplyr     1.1.4     v readr     2.1.5
+## v forcats   1.0.0     v stringr   1.5.1
+## v ggplot2   3.5.1     v tibble    3.2.1
+## v lubridate 1.9.4     v tidyr     1.3.1
+## v purrr     1.0.2     
+## -- Conflicts ------------------------------------------ tidyverse_conflicts() --
+## x dplyr::filter() masks stats::filter()
+## x dplyr::lag()    masks stats::lag()
+## i Use the conflicted package (<http://conflicted.r-lib.org/>) to force all conflicts to become errors
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(dplyr)}
+\end{Highlighting}
+\end{Shaded}
+
+\subsubsection{Cargar datos (ajusta el nombre del
+archivo)}\label{cargar-datos-ajusta-el-nombre-del-archivo}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{datos}\OtherTok{\textless{}{-}} \FunctionTok{read.csv}\NormalTok{(}\StringTok{"C:/Users/OptiPlex/OneDrive/Documentos/Universidad\_Central/Opcion Estadistica/Proyecto/Electric\_Vehicle\_Population\_Data.csv"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\subsubsection{Ver las primeras filas}\label{ver-las-primeras-filas}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{head}\NormalTok{(datos)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##   VIN..1.10.   County    City State Postal.Code Model.Year    Make      Model
+## 1 5YJ3E1EBXK     King Seattle    WA       98178       2019   TESLA    MODEL 3
+## 2 5YJYGDEE3L   Kitsap Poulsbo    WA       98370       2020   TESLA    MODEL Y
+## 3 KM8KRDAF5P   Kitsap  Olalla    WA       98359       2023 HYUNDAI    IONIQ 5
+## 4 5UXTA6C0XM   Kitsap Seabeck    WA       98380       2021     BMW         X5
+## 5 JTMAB3FV7P Thurston Rainier    WA       98576       2023  TOYOTA RAV4 PRIME
+## 6 5YJSA1DN0C Thurston Olympia    WA       98502       2012   TESLA    MODEL S
+##                    Electric.Vehicle.Type
+## 1         Battery Electric Vehicle (BEV)
+## 2         Battery Electric Vehicle (BEV)
+## 3         Battery Electric Vehicle (BEV)
+## 4 Plug-in Hybrid Electric Vehicle (PHEV)
+## 5 Plug-in Hybrid Electric Vehicle (PHEV)
+## 6         Battery Electric Vehicle (BEV)
+##              Clean.Alternative.Fuel.Vehicle..CAFV..Eligibility Electric.Range
+## 1                      Clean Alternative Fuel Vehicle Eligible            220
+## 2                      Clean Alternative Fuel Vehicle Eligible            291
+## 3 Eligibility unknown as battery range has not been researched              0
+## 4                      Clean Alternative Fuel Vehicle Eligible             30
+## 5                      Clean Alternative Fuel Vehicle Eligible             42
+## 6                      Clean Alternative Fuel Vehicle Eligible            265
+##   Base.MSRP Legislative.District DOL.Vehicle.ID            Vehicle.Location
+## 1         0                   37      477309682 POINT (-122.23825 47.49461)
+## 2         0                   23      109705683 POINT (-122.64681 47.73689)
+## 3         0                   26      230390492 POINT (-122.54729 47.42602)
+## 4         0                   35      267929112 POINT (-122.81585 47.64509)
+## 5         0                    2      236505139 POINT (-122.68993 46.88897)
+## 6     59900                   22      186637195 POINT (-122.92333 47.03779)
+##                               Electric.Utility X2020.Census.Tract
+## 1 CITY OF SEATTLE - (WA)|CITY OF TACOMA - (WA)        53033011902
+## 2                       PUGET SOUND ENERGY INC        53035091100
+## 3                       PUGET SOUND ENERGY INC        53035092802
+## 4                       PUGET SOUND ENERGY INC        53035091301
+## 5                       PUGET SOUND ENERGY INC        53067012530
+## 6                       PUGET SOUND ENERGY INC        53067010600
+\end{verbatim}
+
+\subsubsection{Ver estructura de los
+datos}\label{ver-estructura-de-los-datos}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{str}\NormalTok{(datos)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 'data.frame':    235692 obs. of  17 variables:
+##  $ VIN..1.10.                                       : chr  "5YJ3E1EBXK" "5YJYGDEE3L" "KM8KRDAF5P" "5UXTA6C0XM" ...
+##  $ County                                           : chr  "King" "Kitsap" "Kitsap" "Kitsap" ...
+##  $ City                                             : chr  "Seattle" "Poulsbo" "Olalla" "Seabeck" ...
+##  $ State                                            : chr  "WA" "WA" "WA" "WA" ...
+##  $ Postal.Code                                      : int  98178 98370 98359 98380 98576 98502 98004 98271 98034 98052 ...
+##  $ Model.Year                                       : int  2019 2020 2023 2021 2023 2012 2017 2022 2018 2018 ...
+##  $ Make                                             : chr  "TESLA" "TESLA" "HYUNDAI" "BMW" ...
+##  $ Model                                            : chr  "MODEL 3" "MODEL Y" "IONIQ 5" "X5" ...
+##  $ Electric.Vehicle.Type                            : chr  "Battery Electric Vehicle (BEV)" "Battery Electric Vehicle (BEV)" "Battery Electric Vehicle (BEV)" "Plug-in Hybrid Electric Vehicle (PHEV)" ...
+##  $ Clean.Alternative.Fuel.Vehicle..CAFV..Eligibility: chr  "Clean Alternative Fuel Vehicle Eligible" "Clean Alternative Fuel Vehicle Eligible" "Eligibility unknown as battery range has not been researched" "Clean Alternative Fuel Vehicle Eligible" ...
+##  $ Electric.Range                                   : int  220 291 0 30 42 265 81 22 215 215 ...
+##  $ Base.MSRP                                        : int  0 0 0 0 0 59900 0 0 0 0 ...
+##  $ Legislative.District                             : int  37 23 26 35 2 22 48 39 45 45 ...
+##  $ DOL.Vehicle.ID                                   : int  477309682 109705683 230390492 267929112 236505139 186637195 196789610 204822761 2039222 474817283 ...
+##  $ Vehicle.Location                                 : chr  "POINT (-122.23825 47.49461)" "POINT (-122.64681 47.73689)" "POINT (-122.54729 47.42602)" "POINT (-122.81585 47.64509)" ...
+##  $ Electric.Utility                                 : chr  "CITY OF SEATTLE - (WA)|CITY OF TACOMA - (WA)" "PUGET SOUND ENERGY INC" "PUGET SOUND ENERGY INC" "PUGET SOUND ENERGY INC" ...
+##  $ X2020.Census.Tract                               : num  5.30e+10 5.30e+10 5.30e+10 5.30e+10 5.31e+10 ...
+\end{verbatim}
+
+\subsubsection{Pregunta 1:}\label{pregunta-1}
+
+Filtrar datos para BEV y PHEV
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{vehiculos\_filtrados }\OtherTok{\textless{}{-}}\NormalTok{ datos }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{filter}\NormalTok{(Electric.Vehicle.Type }\SpecialCharTok{\%in\%} \FunctionTok{c}\NormalTok{(}\StringTok{"Battery Electric Vehicle (BEV)"}\NormalTok{, }\StringTok{"Plug{-}in Hybrid Electric Vehicle (PHEV)"}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\subsubsection{Crear el gráfico}\label{crear-el-gruxe1fico}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#windows()}
+\FunctionTok{ggplot}\NormalTok{(vehiculos\_filtrados, }\FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ Electric.Vehicle.Type, }\AttributeTok{fill =}\NormalTok{ Electric.Vehicle.Type)) }\SpecialCharTok{+}
+  \FunctionTok{geom\_bar}\NormalTok{() }\SpecialCharTok{+}
+  \FunctionTok{labs}\NormalTok{(}\AttributeTok{title =} \StringTok{"Distribución de Vehículos Eléctricos (BEV vs PHEV)"}\NormalTok{,}
+       \AttributeTok{x =} \StringTok{"Tipo de Vehículo"}\NormalTok{,}\AttributeTok{y =} \StringTok{"Cantidad"}\NormalTok{,}\AttributeTok{fill =} \StringTok{"Tipo"}\NormalTok{) }\SpecialCharTok{+}  \FunctionTok{theme\_minimal}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{ProyectoPrimerCorte_files/figure-latex/unnamed-chunk-6-1.pdf}
+
+\#\#\#Pregunta 3: Diferencias en el alcance eléctrico entre BEV y PHEV
+
+\subsubsection{Gráfico de boxplot comparando BEV y
+PHEV}\label{gruxe1fico-de-boxplot-comparando-bev-y-phev}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{ggplot}\NormalTok{(datos, }\FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ Electric.Vehicle.Type, }\AttributeTok{y =}\NormalTok{ Electric.Range, }\AttributeTok{fill =}
+\NormalTok{Electric.Vehicle.Type)) }\SpecialCharTok{+} \FunctionTok{geom\_boxplot}\NormalTok{() }\SpecialCharTok{+} \FunctionTok{labs}\NormalTok{(}\AttributeTok{title =} \StringTok{"Comparación del}
+\StringTok{Alcance entre BEV y PHEV"}\NormalTok{, }\AttributeTok{x =} \StringTok{"Tipo de Vehículo"}\NormalTok{, }\AttributeTok{y =} \StringTok{"Alcance}
+\StringTok{Eléctrico (millas)"}\NormalTok{) }\SpecialCharTok{+} \FunctionTok{theme\_minimal}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Warning: Removed 36 rows containing non-finite outside the scale range
+## (`stat_boxplot()`).
+\end{verbatim}
+
+\includegraphics{ProyectoPrimerCorte_files/figure-latex/unnamed-chunk-7-1.pdf}
+
+\#\#\#Pregunta 4: Relación entre elegibilidad CAFV y ubicación
+
+\subsubsection{Contar registros por ciudad y
+elegibilidad}\label{contar-registros-por-ciudad-y-elegibilidad}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{ciudad\_elegibilidad }\OtherTok{\textless{}{-}}\NormalTok{ datos }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{group\_by}\NormalTok{(City, Clean.Alternative.Fuel.Vehicle..CAFV..Eligibility) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{summarise}\NormalTok{(}\AttributeTok{Conteo =} \FunctionTok{n}\NormalTok{(), }\AttributeTok{.groups =} \StringTok{"drop"}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{arrange}\NormalTok{(}\FunctionTok{desc}\NormalTok{(Conteo))}
+\end{Highlighting}
+\end{Shaded}
+
+\subsubsection{Obtener la moda (ciudades con mayor frecuencia por tipo
+de
+elegibilidad)}\label{obtener-la-moda-ciudades-con-mayor-frecuencia-por-tipo-de-elegibilidad}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{moda\_ciudades }\OtherTok{\textless{}{-}}\NormalTok{ ciudad\_elegibilidad }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{group\_by}\NormalTok{(Clean.Alternative.Fuel.Vehicle..CAFV..Eligibility) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{slice\_max}\NormalTok{(Conteo, }\AttributeTok{n =} \DecValTok{5}\NormalTok{)  }\CommentTok{\# Tomar las 5 ciudades con más registros}
+\CommentTok{\# Tomar las 5 ciudades con más registros}
+\end{Highlighting}
+\end{Shaded}
+
+\subsubsection{Obtener la mediana del conteo de registros por
+ciudad}\label{obtener-la-mediana-del-conteo-de-registros-por-ciudad}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{mediana\_conteo }\OtherTok{\textless{}{-}} \FunctionTok{median}\NormalTok{(ciudad\_elegibilidad}\SpecialCharTok{$}\NormalTok{Conteo)}
+\end{Highlighting}
+\end{Shaded}
+
+\subsubsection{Obtener la media del conteo de registros por
+ciudad}\label{obtener-la-media-del-conteo-de-registros-por-ciudad}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{media\_conteo }\OtherTok{\textless{}{-}} \FunctionTok{mean}\NormalTok{(ciudad\_elegibilidad}\SpecialCharTok{$}\NormalTok{Conteo)}
+\end{Highlighting}
+\end{Shaded}
+
+\subsubsection{Mostrar resultados}\label{mostrar-resultados}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{print}\NormalTok{(}\StringTok{"Moda (Top ciudades por elegibilidad):"}\NormalTok{) }
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "Moda (Top ciudades por elegibilidad):"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{print}\NormalTok{(moda\_ciudades)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 15 x 3
+## # Groups:   Clean.Alternative.Fuel.Vehicle..CAFV..Eligibility [3]
+##    City      Clean.Alternative.Fuel.Vehicle..CAFV..Eligibility            Conteo
+##    <chr>     <chr>                                                         <int>
+##  1 Seattle   Clean Alternative Fuel Vehicle Eligible                       12269
+##  2 Bellevue  Clean Alternative Fuel Vehicle Eligible                        3136
+##  3 Vancouver Clean Alternative Fuel Vehicle Eligible                        2840
+##  4 Redmond   Clean Alternative Fuel Vehicle Eligible                        2180
+##  5 Renton    Clean Alternative Fuel Vehicle Eligible                        2078
+##  6 Seattle   Eligibility unknown as battery range has not been researched  21596
+##  7 Bellevue  Eligibility unknown as battery range has not been researched   7690
+##  8 Redmond   Eligibility unknown as battery range has not been researched   5565
+##  9 Bothell   Eligibility unknown as battery range has not been researched   5490
+## 10 Vancouver Eligibility unknown as battery range has not been researched   4666
+## 11 Seattle   Not eligible due to low battery range                          3545
+## 12 Vancouver Not eligible due to low battery range                          1004
+## 13 Tukwila   Not eligible due to low battery range                           826
+## 14 Renton    Not eligible due to low battery range                           709
+## 15 Bellevue  Not eligible due to low battery range                           683
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{print}\NormalTok{(}\FunctionTok{paste}\NormalTok{(}\StringTok{"Mediana de registros por ciudad:"}\NormalTok{, mediana\_conteo))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "Mediana de registros por ciudad: 6"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{print}\NormalTok{(}\FunctionTok{paste}\NormalTok{(}\StringTok{"Media de registros por ciudad:"}\NormalTok{, }\FunctionTok{round}\NormalTok{(media\_conteo, }\DecValTok{2}\NormalTok{)))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "Media de registros por ciudad: 145.13"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#windows()}
+\FunctionTok{ggplot}\NormalTok{(moda\_ciudades, }\FunctionTok{aes}\NormalTok{(}\AttributeTok{x =} \FunctionTok{reorder}\NormalTok{(City, Conteo), }\AttributeTok{y =}
+\NormalTok{Conteo, }\AttributeTok{fill =}\NormalTok{ Clean.Alternative.Fuel.Vehicle..CAFV..Eligibility)) }\SpecialCharTok{+}
+\FunctionTok{geom\_bar}\NormalTok{(}\AttributeTok{stat =} \StringTok{"identity"}\NormalTok{, }\AttributeTok{position =} \StringTok{"dodge"}\NormalTok{) }\SpecialCharTok{+} \FunctionTok{coord\_flip}\NormalTok{() }\SpecialCharTok{+}
+\FunctionTok{labs}\NormalTok{(}\AttributeTok{title =} \StringTok{"Ciudades con Mayor Elegibilidad CAFV"}\NormalTok{, }\AttributeTok{x =} \StringTok{"Ciudad"}\NormalTok{, }\AttributeTok{y =}
+\StringTok{"Cantidad de Vehículos"}\NormalTok{) }\SpecialCharTok{+} \FunctionTok{theme\_minimal}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{ProyectoPrimerCorte_files/figure-latex/unnamed-chunk-12-1.pdf}
+
+\subsubsection{Pregunta 5: Relación entre tipo de vehículo y proveedor
+eléctrico}\label{pregunta-5-relaciuxf3n-entre-tipo-de-vehuxedculo-y-proveedor-eluxe9ctrico}
+
+\subsubsection{Contar registros por Tipo de Vehículo y Proveedor
+Eléctrico}\label{contar-registros-por-tipo-de-vehuxedculo-y-proveedor-eluxe9ctrico}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{vehiculo\_proveedor }\OtherTok{\textless{}{-}}\NormalTok{ datos }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{group\_by}\NormalTok{(Electric.Vehicle.Type, Electric.Utility) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{summarise}\NormalTok{(}\AttributeTok{Conteo =} \FunctionTok{n}\NormalTok{(), }\AttributeTok{.groups =} \StringTok{"drop"}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{arrange}\NormalTok{(}\FunctionTok{desc}\NormalTok{(Conteo))}
+\end{Highlighting}
+\end{Shaded}
+
+\subsubsection{Obtener la moda (las combinaciones más
+frecuentes)}\label{obtener-la-moda-las-combinaciones-muxe1s-frecuentes}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{moda\_vehiculo\_proveedor }\OtherTok{\textless{}{-}}\NormalTok{ vehiculo\_proveedor }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{group\_by}\NormalTok{(Electric.Vehicle.Type) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{slice\_max}\NormalTok{(Conteo, }\AttributeTok{n =} \DecValTok{5}\NormalTok{)  }\CommentTok{\# Tomar las 5 combinaciones más comunes}
+\end{Highlighting}
+\end{Shaded}
+
+\subsubsection{Calcular mediana y media del conteo de
+registros}\label{calcular-mediana-y-media-del-conteo-de-registros}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{mediana\_conteo }\OtherTok{\textless{}{-}} \FunctionTok{median}\NormalTok{(vehiculo\_proveedor}\SpecialCharTok{$}\NormalTok{Conteo)}
+\NormalTok{media\_conteo }\OtherTok{\textless{}{-}} \FunctionTok{mean}\NormalTok{(vehiculo\_proveedor}\SpecialCharTok{$}\NormalTok{Conteo)}
+\end{Highlighting}
+\end{Shaded}
+
+\subsubsection{Mostrar resultados en
+consola}\label{mostrar-resultados-en-consola}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{print}\NormalTok{(}\StringTok{"Moda (Top combinaciones de Tipo de Vehículo y Proveedor Eléctrico):"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "Moda (Top combinaciones de Tipo de Vehículo y Proveedor Eléctrico):"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{print}\NormalTok{(moda\_vehiculo\_proveedor)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 10 x 3
+## # Groups:   Electric.Vehicle.Type [2]
+##    Electric.Vehicle.Type                  Electric.Utility                Conteo
+##    <chr>                                  <chr>                            <int>
+##  1 Battery Electric Vehicle (BEV)         PUGET SOUND ENERGY INC||CITY O~  69806
+##  2 Battery Electric Vehicle (BEV)         PUGET SOUND ENERGY INC           39356
+##  3 Battery Electric Vehicle (BEV)         CITY OF SEATTLE - (WA)|CITY OF~  32278
+##  4 Battery Electric Vehicle (BEV)         BONNEVILLE POWER ADMINISTRATIO~  10361
+##  5 Battery Electric Vehicle (BEV)         BONNEVILLE POWER ADMINISTRATIO~   8271
+##  6 Plug-in Hybrid Electric Vehicle (PHEV) PUGET SOUND ENERGY INC||CITY O~  15492
+##  7 Plug-in Hybrid Electric Vehicle (PHEV) PUGET SOUND ENERGY INC            9567
+##  8 Plug-in Hybrid Electric Vehicle (PHEV) CITY OF SEATTLE - (WA)|CITY OF~   7828
+##  9 Plug-in Hybrid Electric Vehicle (PHEV) BONNEVILLE POWER ADMINISTRATIO~   3400
+## 10 Plug-in Hybrid Electric Vehicle (PHEV) BONNEVILLE POWER ADMINISTRATIO~   2414
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{print}\NormalTok{(}\FunctionTok{paste}\NormalTok{(}\StringTok{"Mediana de registros por combinación:"}\NormalTok{, mediana\_conteo))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "Mediana de registros por combinación: 108"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{print}\NormalTok{(}\FunctionTok{paste}\NormalTok{(}\StringTok{"Media de registros por combinación:"}\NormalTok{, }\FunctionTok{round}\NormalTok{(media\_conteo, }\DecValTok{2}\NormalTok{)))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "Media de registros por combinación: 1581.83"
+\end{verbatim}
+
+\subsubsection{🔹 Visualización de las combinaciones más
+comunes}\label{visualizaciuxf3n-de-las-combinaciones-muxe1s-comunes}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#windows()}
+\FunctionTok{ggplot}\NormalTok{(moda\_vehiculo\_proveedor, }\FunctionTok{aes}\NormalTok{(}\AttributeTok{x =} \FunctionTok{reorder}\NormalTok{(Electric.Utility, Conteo), }\AttributeTok{y =}\NormalTok{ Conteo, }\AttributeTok{fill =}\NormalTok{ Electric.Vehicle.Type)) }\SpecialCharTok{+}
+  \FunctionTok{geom\_bar}\NormalTok{(}\AttributeTok{stat =} \StringTok{"identity"}\NormalTok{, }\AttributeTok{position =} \StringTok{"dodge"}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{coord\_flip}\NormalTok{() }\SpecialCharTok{+}
+  \FunctionTok{labs}\NormalTok{(}\AttributeTok{title =} \StringTok{"Relación entre Tipo de Vehículo y Proveedor Eléctrico"}\NormalTok{,}
+       \AttributeTok{x =} \StringTok{"Proveedor Eléctrico"}\NormalTok{,}
+       \AttributeTok{y =} \StringTok{"Cantidad de Vehículos"}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{theme\_minimal}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{ProyectoPrimerCorte_files/figure-latex/unnamed-chunk-17-1.pdf}
+
+\paragraph{\texorpdfstring{\textbf{Conclusiones}}{Conclusiones}}\label{conclusiones}
+
+\begin{itemize}
+\item
+  Los lugares donde los proveedores de electricidad han desarrollado una
+  buena red de carga y existen incentivos claros son los que tienen más
+  vehículos eléctricos. Como nos demuestran las gráficas de la ciudad de
+  Seattle.
+\item
+  Aunque los híbridos enchufables (PHEV) se encuentren en el mercado, la
+  mayoría de las personas están optando por los vehículos 100\%
+  eléctricos (BEV). Esto indica que la tecnología ha avanzado
+  permitiendo mayor autonomía en estos, que los incentivos y lugares de
+  carga cada vez están mejor distribuidos.
+\item
+  Las empresas de electricidad tienen un rol clave en el futuro de la
+  movilidad. No es solo una cuestión de que las personas quieran cambiar
+  a autos eléctricos, sino que las compañías eléctricas deben estar
+  preparadas para abastecer esa demanda. Aquellas que ya han trabajado
+  en infraestructura están viendo cómo en sus regiones el número de
+  autos eléctricos crece más rápido.
+\item
+  Las compañías eléctricas deben estar preparadas para abastecer la
+  demanda con su infraestructura ya que~ están viendo cómo en sus
+  regiones el número de autos eléctricos crece más rápido.
+\item
+  Aunque hay avances importantes, aún hay proveedores con muy pocos
+  autos eléctricos en sus redes, lo que indica que en algunas zonas
+  falta infraestructura o incentivos atractivos.
+\end{itemize}
+
+\paragraph{\texorpdfstring{\textbf{Referencias}}{Referencias}}\label{referencias}
+
+\begin{itemize}
+\tightlist
+\item
+  Data.gov. (n.d.). Electric Vehicle Population Data. Retrieved
+  from\url{https://catalog.data.gov/dataset/electric-vehicle-population-data}
+\end{itemize}
+
+\end{document}

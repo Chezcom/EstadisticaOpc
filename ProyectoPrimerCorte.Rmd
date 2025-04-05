@@ -2,10 +2,10 @@
 title: "Fundamentos de Estadística para Analítica de datos"
 mainfont: DejaVu Sans
 output:
-  html_document: default
-  word_document: default
   pdf_document:
     latex_engine: xelatex
+  word_document: default
+  html_document: default
 font-family: Times New Roman
 editor_options: 
   markdown: 
@@ -149,14 +149,18 @@ estos dos tipos de vehículos en cuanto a su precio y rendimiento.
 ```{r}
 library(tidyverse)
 library(dplyr)
+# Instalar TinyTeX
+install.packages("tinytex")
+tinytex::install_tinytex()
+
 
 ```
 
 ### Cargar datos (ajusta el nombre del archivo)
 
-```         
+```{r}
 
-datos<- read.csv("Electric_Vehicle_Population_Data.csv")
+datos<- read.csv("C:/Users/OptiPlex/OneDrive/Documentos/Universidad_Central/Opcion Estadistica/Proyecto/Electric_Vehicle_Population_Data.csv")
 ```
 
 ### Ver las primeras filas
