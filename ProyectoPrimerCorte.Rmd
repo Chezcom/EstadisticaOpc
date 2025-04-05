@@ -12,8 +12,6 @@ editor_options:
     wrap: 72
 ---
 
-install_tinytex()
-
 ## Fundamentos de Estadística para Analítica de datos
 
 Integrantes
@@ -150,13 +148,15 @@ estos dos tipos de vehículos en cuanto a su precio y rendimiento.
 
 ```{r}
 library(tidyverse)
+library(dplyr)
+
 ```
 
 ### Cargar datos (ajusta el nombre del archivo)
 
-```{r}
-datos<- read.csv("o/Electric_Vehicle_Population_Data.csv")
+```         
 
+datos<- read.csv("Electric_Vehicle_Population_Data.csv")
 ```
 
 ### Ver las primeras filas
@@ -237,8 +237,8 @@ media_conteo <- mean(ciudad_elegibilidad$Conteo)
 ### Mostrar resultados
 
 ```{r}
-print("Moda (Top ciudades por elegibilidad):") print(moda_ciudades)
-
+print("Moda (Top ciudades por elegibilidad):") 
+print(moda_ciudades)
 print(paste("Mediana de registros por ciudad:", mediana_conteo))
 print(paste("Media de registros por ciudad:", round(media_conteo, 2)))
 
@@ -298,3 +298,36 @@ ggplot(moda_vehiculo_proveedor, aes(x = reorder(Electric.Utility, Conteo), y = C
        y = "Cantidad de Vehículos") +
   theme_minimal()
 ```
+
+#### **Conclusiones**
+
+-   Los lugares donde los proveedores de electricidad han desarrollado
+    una buena red de carga y existen incentivos claros son los que
+    tienen más vehículos eléctricos. Como nos demuestran las gráficas de
+    la ciudad de Seattle.
+
+-   Aunque los híbridos enchufables (PHEV) se encuentren en el mercado,
+    la mayoría de las personas están optando por los vehículos 100%
+    eléctricos (BEV). Esto indica que la tecnología ha avanzado
+    permitiendo mayor autonomía en estos, que los incentivos y lugares
+    de carga cada vez están mejor distribuidos.
+
+-   Las empresas de electricidad tienen un rol clave en el futuro de la
+    movilidad. No es solo una cuestión de que las personas quieran
+    cambiar a autos eléctricos, sino que las compañías eléctricas deben
+    estar preparadas para abastecer esa demanda. Aquellas que ya han
+    trabajado en infraestructura están viendo cómo en sus regiones el
+    número de autos eléctricos crece más rápido.
+
+-   Las compañías eléctricas deben estar preparadas para abastecer la
+    demanda con su infraestructura ya que  están viendo cómo en sus
+    regiones el número de autos eléctricos crece más rápido.
+
+-   Aunque hay avances importantes, aún hay proveedores con muy pocos
+    autos eléctricos en sus redes, lo que indica que en algunas zonas
+    falta infraestructura o incentivos atractivos.
+
+#### **Referencias**
+
+-   Data.gov. (n.d.). Electric Vehicle Population Data. Retrieved
+    from<https://catalog.data.gov/dataset/electric-vehicle-population-data>
