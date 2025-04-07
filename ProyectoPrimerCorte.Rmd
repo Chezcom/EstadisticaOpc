@@ -1,16 +1,13 @@
 ---
-title: "Fundamentos de Estadística para Analítica de datos"
-mainfont: DejaVu Sans
-output:
-  pdf_document:
-    latex_engine: xelatex
-  word_document: default
-  html_document: default
-font-family: Times New Roman
-editor_options: 
-  markdown: 
-    wrap: 72
+title: "Untitled"
+output: html_document
+date: "2025-04-05"
 ---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
 
 ## Fundamentos de Estadística para Analítica de datos
 
@@ -150,8 +147,8 @@ estos dos tipos de vehículos en cuanto a su precio y rendimiento.
 library(tidyverse)
 library(dplyr)
 # Instalar TinyTeX
-install.packages("tinytex")
-tinytex::install_tinytex()
+#install.packages("tinytex")
+#tinytex::install_tinytex()
 
 
 ```
